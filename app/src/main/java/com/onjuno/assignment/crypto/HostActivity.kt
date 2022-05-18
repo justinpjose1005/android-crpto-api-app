@@ -2,24 +2,18 @@ package com.onjuno.assignment.crypto
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.onjuno.assignment.crypto.databinding.ActivityMainBinding
+import com.onjuno.assignment.crypto.databinding.ActivityHostBinding
 
 class HostActivity : AppCompatActivity() {
-    private lateinit var mBinding: ActivityMainBinding
+    private lateinit var mBinding: ActivityHostBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = ActivityMainBinding.inflate(layoutInflater)
+        mBinding = ActivityHostBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
-        setClickListeners()
-    }
-
-    private fun setClickListeners() {
-        with(mBinding) {
-            emptyStateBtn.setOnClickListener {
-            }
-            valueStateBtn.setOnClickListener {
-            }
-        }
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.hostFcv, HomeFragment.newInstance())
+            .commit()
     }
 }
