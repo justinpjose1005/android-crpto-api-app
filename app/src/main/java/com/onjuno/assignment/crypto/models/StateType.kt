@@ -1,5 +1,9 @@
 package com.onjuno.assignment.crypto.models
 
-enum class StateType {
-    EMPTY_STATE, VALUE_STATE
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+enum class StateType : Parcelable {
+    EMPTY_STATE, VALUE_STATE, INVALID
 }
