@@ -1,7 +1,8 @@
-package com.onjuno.assignment.crypto
+package com.onjuno.assignment.crypto.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.onjuno.assignment.crypto.R
 import com.onjuno.assignment.crypto.databinding.ActivityHostBinding
 
 class HostActivity : AppCompatActivity() {

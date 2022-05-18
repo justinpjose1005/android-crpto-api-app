@@ -1,10 +1,11 @@
-package com.onjuno.assignment.crypto
+package com.onjuno.assignment.crypto.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.onjuno.assignment.crypto.R
 import com.onjuno.assignment.crypto.databinding.FragmentHomeBinding
 import com.onjuno.assignment.crypto.models.StateType
 
