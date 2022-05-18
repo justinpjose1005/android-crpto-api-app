@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.onjuno.assignment.crypto.constants.IntentConstants
 import com.onjuno.assignment.crypto.databinding.FragmentStateBinding
+import com.onjuno.assignment.crypto.models.StateType
 
 class StateFragment : Fragment() {
     companion object {
-        fun newInstance() = StateFragment()
+        fun newInstance(stateType: StateType) = StateFragment().apply {
+            arguments = bundleOf(IntentConstants.EXT_STATE_TYPE to stateType)
+        }
     }
 
     private lateinit var mBinding: FragmentStateBinding

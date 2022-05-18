@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.onjuno.assignment.crypto.databinding.FragmentHomeBinding
+import com.onjuno.assignment.crypto.models.StateType
 
 class HomeFragment : Fragment() {
     companion object {
@@ -31,9 +32,16 @@ class HomeFragment : Fragment() {
     private fun setClickListeners() {
         with(mBinding) {
             emptyStateBtn.setOnClickListener {
+                openStateFragment(StateType.EMPTY_STATE)
             }
             valueStateBtn.setOnClickListener {
+                openStateFragment(StateType.VALUE_STATE)
             }
         }
+    }
+
+    private fun openStateFragment(stateType: StateType) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.hostFcv, StateFragment.newInstance(stateType)).commit()
     }
 }
