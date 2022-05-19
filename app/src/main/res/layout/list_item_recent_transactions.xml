@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="bodyFlow"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalStyle="packed"
+        app:flow_wrapMode="chain"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/bodyFlow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:constraint_referenced_ids="logoImg,transactionTextFlow,transactionValuesFlow"
+        app:flow_horizontalGap="10dp"
+        app:flow_horizontalStyle="spread_inside" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logoImg"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        tools:srcCompat="@tools:sample/avatars[5]" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/transactionTextFlow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="transactionTitleTv,transactionTimeTv"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalGap="10dp"
+        app:flow_wrapMode="aligned" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/transactionTitleTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.9"
+        android:textStyle="bold"
+        tools:text="Bought 0.0.35 ETH" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/transactionTimeTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.6"
+        tools:text="1 minute ago" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/transactionValuesFlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="transactionAmountTv,transactionSubAmountTv"
+        app:flow_horizontalBias="1"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalGap="10dp"
+        app:flow_wrapMode="chain" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/transactionAmountTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:textStyle="bold"
+        tools:text="$131.72" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/transactionSubAmountTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.6"
+        tools:text="Buy Price: $3,700" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

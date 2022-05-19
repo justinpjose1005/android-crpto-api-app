@@ -3,4 +3,14 @@
     <string name="empty_state">Empty State</string>
     <string name="value_state">Value State</string>
     <string name="deposit">Deposit</string>
+    <string name="something_went_wrong_please_ntry_again_later">Something went wrong, please\ntry again later!</string>
+    <string name="retry">Retry</string>
+    <string name="valueInUsd">$%s</string>
+    <string name="valueInToken">%s %s</string>
+    <string name="buy">Buy</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="your_crypto_holdings">Your Crypto Holdings</string>
+    <string name="current_prices">Current Prices</string>
+    <string name="crypto_purchased">%s Bought</string>
+    <string name="just_now">Just now</string>
 </resources>

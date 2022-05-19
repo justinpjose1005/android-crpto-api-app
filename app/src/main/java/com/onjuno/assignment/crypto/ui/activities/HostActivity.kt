@@ -1,10 +1,12 @@
-package com.onjuno.assignment.crypto.ui
+package com.onjuno.assignment.crypto.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.onjuno.assignment.crypto.R
 import com.onjuno.assignment.crypto.databinding.ActivityHostBinding
+import com.onjuno.assignment.crypto.ui.fragments.HomeFragment
+import com.onjuno.assignment.crypto.ui.fragments.StateFragment
 
 class HostActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityHostBinding

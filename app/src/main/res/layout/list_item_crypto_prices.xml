@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="10dp"
+        android:text="@string/buy"
+        android:textColor="@color/design_default_color_primary"
+        android:translationX="-12dp"
+        android:translationY="6dp"
+        app:layout_constraintBottom_toTopOf="@id/rootFlow"
+        app:layout_constraintEnd_toEndOf="@id/rootFlow"
+        app:layout_constraintStart_toEndOf="@id/rootFlow"
+        app:layout_constraintTop_toTopOf="@id/rootFlow"
+        app:strokeColor="@color/design_default_color_primary"
+        app:strokeWidth="1dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/rootFlow"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/shape_card"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalStyle="packed"
+        app:flow_wrapMode="chain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/contentFlow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="16dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        app:constraint_referenced_ids="logoImg,cryptoNameTv,cryptoPriceTv"
+        app:flow_horizontalBias="0"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalBias="0"
+        app:flow_verticalGap="10dp"
+        app:flow_verticalStyle="packed"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintBottom_toBottomOf="@id/rootFlow"
+        app:layout_constraintEnd_toEndOf="@id/rootFlow"
+        app:layout_constraintStart_toStartOf="@id/rootFlow"
+        app:layout_constraintTop_toBottomOf="@id/buyBtn" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logoImg"
+        android:layout_width="0dp"
+        android:scaleType="fitStart"
+        android:layout_height="48dp"
+        tools:srcCompat="@tools:sample/avatars[5]" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cryptoNameTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.6"
+        android:textStyle="bold"
+        tools:text="Bitcoin" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/cryptoPriceTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:textStyle="bold"
+        tools:text="$34,561.72" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

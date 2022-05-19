@@ -1,4 +1,4 @@
-package com.onjuno.assignment.crypto.ui
+package com.onjuno.assignment.crypto.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

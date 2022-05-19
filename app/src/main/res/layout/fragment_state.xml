@@ -1,91 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <androidx.constraintlayout.helper.widget.Flow
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        app:constraint_referenced_ids="cryptoAccountFlow"
-        app:flow_maxElementsWrap="1"
-        app:flow_verticalBias="0"
-        app:flow_wrapMode="aligned" />
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/cryptoAccountFlow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_card"
-        android:paddingStart="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        app:constraint_referenced_ids="accountImg,accountTextFlow,accountStateFlow"
-        app:flow_horizontalGap="10dp"
-        app:flow_horizontalStyle="spread_inside" />
+        <!-- root flow -->
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/accountImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/rootFlow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            app:constraint_referenced_ids="cryptoAccountFlow,divider1,yourCryptoHoldingsFlow,divider2,recentTransactionsFlow,divider3,cryptoPricesFlow"
+            app:flow_maxElementsWrap="1"
+            app:flow_verticalBias="0"
+            app:flow_verticalGap="20dp"
+            app:flow_verticalStyle="packed"
+            app:flow_wrapMode="aligned" />
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/accountTextFlow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="accountLabel1Tv,accountLabel2Tv"
-        app:flow_maxElementsWrap="1"
-        app:flow_verticalGap="10dp"
-        app:flow_wrapMode="aligned" />
+        <!-- crypto balance flow -->
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/accountLabel1Tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Crypto Account"
-        android:textStyle="bold" />
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/cryptoAccountFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_card"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            app:constraint_referenced_ids="accountTextFlow,accountStateFlow"
+            app:flow_horizontalGap="10dp"
+            app:flow_horizontalStyle="spread_inside" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/accountLabel2Tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:alpha="0.6"
-        android:text="BTC, ETH and more" />
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/accountTextFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="accountLabel1Tv,accountLabel2Tv"
+            app:flow_maxElementsWrap="1"
+            app:flow_verticalGap="10dp"
+            app:flow_wrapMode="aligned" />
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/accountStateFlow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="accountBalanceTv,depositBtn"
-        app:flow_maxElementsWrap="1"
-        app:flow_wrapMode="chain" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accountLabel1Tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:textStyle="bold"
+            tools:text="Crypto Account" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/depositBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:backgroundTint="@color/white"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="@string/deposit"
-        android:textColor="@color/design_default_color_primary"
-        android:visibility="gone"
-        app:strokeColor="@color/design_default_color_primary"
-        app:strokeWidth="1dp"
-        tools:visibility="gone" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accountLabel2Tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            tools:text="BTC, ETH and more" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/accountBalanceTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:alpha="0.9"
-        android:text="$16,234"
-        android:textStyle="bold" />
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/accountStateFlow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="accountBalanceTv,depositBtn"
+            app:flow_maxElementsWrap="1"
+            app:flow_wrapMode="chain" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/depositBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/white"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/deposit"
+            android:textColor="@color/design_default_color_primary"
+            android:visibility="gone"
+            app:strokeColor="@color/design_default_color_primary"
+            app:strokeWidth="1dp"
+            tools:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/accountBalanceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="$16,234"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <!-- your crypto holdings flow -->
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/yourCryptoHoldingsFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="cryptoHoldingsLabelTv,cryptoHoldingsRv"
+            app:flow_maxElementsWrap="1"
+            app:flow_verticalBias="0"
+            app:flow_verticalGap="16dp"
+            app:flow_verticalStyle="packed"
+            app:flow_wrapMode="aligned" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cryptoHoldingsLabelTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:text="@string/your_crypto_holdings"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cryptoHoldingsRv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_card"
+            app:constraint_referenced_ids="cryptoHoldingsLabelTv"
+            app:flow_horizontalStyle="spread_inside"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/list_item_crypto_holdings" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <!-- recent transactions flow -->
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/recentTransactionsFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="recentTransactionsLabelTv,recentTransactionsRv,emptyTransactionsTv"
+            app:flow_maxElementsWrap="1"
+            app:flow_verticalBias="0"
+            app:flow_verticalGap="8dp"
+            app:flow_verticalStyle="packed"
+            app:flow_wrapMode="aligned" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/recentTransactionsLabelTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:text="@string/recent_transactions"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recentTransactionsRv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="cryptoHoldingsLabelTv"
+            app:flow_horizontalStyle="spread_inside"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/list_item_recent_transactions"
+            tools:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emptyTransactionsTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:text="You don't have any recent transactions."
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <!-- crypto prices flow -->
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/cryptoPricesFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="cryptoPricesLabelTv,cryptoPricesRv"
+            app:flow_maxElementsWrap="1"
+            app:flow_verticalBias="0"
+            app:flow_verticalGap="6dp"
+            app:flow_verticalStyle="packed"
+            app:flow_wrapMode="chain" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cryptoPricesLabelTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:text="@string/current_prices"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cryptoPricesRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:constraint_referenced_ids="cryptoHoldingsLabelTv"
+            app:flow_horizontalStyle="spread_inside"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/list_item_crypto_prices" />
+
+        <!-- misc -->
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:indeterminateTint="@color/design_default_color_primary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/errorFlow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_card"
+            android:padding="12dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="errorLabelTv,retryBtn"
+            app:flow_maxElementsWrap="1"
+            app:flow_verticalGap="6dp"
+            app:flow_wrapMode="chain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/errorLabelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/something_went_wrong_please_ntry_again_later" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/retryBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_primary"
+            android:text="@string/retry"
+            android:textColor="@color/white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
